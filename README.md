@@ -3,38 +3,8 @@
 
 ## Dataset preparation:
 - Create LMDB files for train, validation and test dataset splits.
-Please follow README under "create_lmdb_dataset" folder 
+Please follow README under "create_lmdb_dataset" folder
 
-
-## Training:
-
-(i) Please create a text file containing characters of a partcular langauge and name it as "bengali_charlist.txt" and kept it in path  "main_code/alphabet/"
-(ii) Please check l1 (line 42) and l2 (line 43) in code "lang_train.py" in "main_code" folder whether language name is mentioned or not. If language name is not mentioned then please write the language name.   
-
-
-##To train model (TPS-ResNet-BiLSTM-CTC) from scratch:
-
-cd main_code
-
-python3 lang_train.py --mode train --lang bengali --trainRoot create_lmdb_dataset/bengali/train_lmdb --workers 5 --valRoot create_lmdb_dataset/bengali/val_lmdb --batchSize 64 --nepoch 50 --cuda --out out --displayInterval 23000 --valInterval 23000  --adadelta
-
---trainRoot is training dataset path containing train_lmdb 
---valRoot is validation dataset path containing val_lmdb
---nepoch is number of epoch (for training)
---out is output folder containing trainined model (model saved according to best CRR and WRR)
-
-(i) Please see config.py file, if you want to change these parameters
-
-##To Finetune the already trained model: 
-
-cd main_code
-
-python3 lang_train.py --mode train --lang bengali --trainRoot create_lmdb_dataset/bengali/train_lmdb --workers 5 --valRoot create_lmdb_dataset/bengali/val_lmdb --pretrained  out/crnn_results/best_cer.pth --batchSize 64 --nepoch 50 --cuda --out out 
---displayInterval 23000 --valInterval 23000  --adadelta
-
---pretrained is trained model path containing pretrained model
-
-(i) Please see config.py file, if you want to change these parameters 
 
 ## Evaluation and testing:
 
