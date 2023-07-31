@@ -15,7 +15,7 @@ opt = parser.parse_args()
 lang = f'{opt.lang}'
 dataset_name = f'{opt.lang}'
 opt.alphabet_type = "file"
-opt.alphabet = f"{opt.lang}_charlist.txt" 
+opt.alphabet = f"{opt.lang}_lexicon.txt" 
 
 opt.valInterval #= 100
 opt.displayInterval #= 10
