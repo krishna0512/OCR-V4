@@ -1,4 +1,4 @@
-## Training, Finetuning and Evaluation:
+## Testing and Evaluation:
 
 
 ## Dataset preparation:
