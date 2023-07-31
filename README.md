@@ -1,19 +1,19 @@
-## Testing and Evaluation:
-
+# Testing and Evaluation:
 
 ## Dataset preparation:
-- Create LMDB files for train, validation and test dataset splits.
-Please follow README under "create_lmdb_dataset" folder
+- Please follow README under "create_lmdb_dataset" folder
 
 ## Pretrained Models:
-- You can find the pretrained models for V4 printed for 13 languages under the Assets.
+- You can find the pretrained models for V4 printed for 13 languages under the [Assets](https://github.com/NLTM-IIITH/OCR-V4/releases/tag/v4).
+
+## Setup
+- Using Python = 3.10+
+- Install Dependencies `pip install -r requirements.txt`
 
 ## Evaluation and testing:
 
 ```bash
-cd main_code 
-
-python3 lang_train.py --mode test --lang bengali --valRoot  create_lmdb_dataset/bengali/test_lmdb --pretrained  out/crnn_results/best_cer.pth --cuda  --out  out --adadelta
+python3 lang_train.py --mode test --lang bengali --valRoot  bengali/test_lmdb --pretrained  out/crnn_results/best_cer.pth --cuda  --out  out --adadelta
 ```
 `--pretrained` is trained model path containing trained model
 
@@ -25,4 +25,4 @@ python3 lang_train.py --mode test --lang bengali --valRoot  create_lmdb_dataset/
 
 ## Contact
 
-You can contact **[Ajoy Mondal](mailto:ajoy.mondal@iiit.ac.in)** at for any issues or feedbacks.
+You can contact **[Ajoy Mondal](mailto:ajoy.mondal@iiit.ac.in)** for any issues or feedbacks.
