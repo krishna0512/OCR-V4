@@ -1,41 +1,24 @@
-## Training, Finetuning and Evaluation:
+# Testing and Evaluation
 
+## Dataset preparation
+- This README assumes that you have all the word level test images in the path `bengali/images`
+- Create `bengali/test_images.txt` file containing path of test word images. Each row of the file contains path of each word image in test set. for e.g.
+  ```
+  images/0001.jpg
+  images/0002.jpg
+  images/0003.jpg
+  ...
+  ```
+- Create `bengali/test_labels.txt` file containing ground truth trascription of test word images. Each row of the file contains transcription of each word image in test set. for e.g.
+  ```
+  শুভেচ্ছা
+  আচ্ছা
+  বাংলা
+  ...
+  ```
 
-## Dataset preparation:
-- Create LMDB files for train, validation and test dataset splits.
-Please follow README under "create_lmdb_dataset" folder 
+## Create LMDB Test files 
 
-(i) please create "bengali/train_images.txt" file containing path of training word images. Each row of the file contains path of each word image in training set
+`python3 create_lmdb_dataset --type test`
 
-(ii) please create "bengali/train_labels.txt" file containing ground truth trascription of training word images. Each row of the file contains transcription of each word image in training set
-
-(iii) please create "bengali/val_images.txt" file containing path of validation word images. Each row of the file contains path of each word image in validation set
-
-(iv) please create "bengali/val_labels.txt" file containing ground truth trascription of validation word images. Each row of the file contains transcription of each word image in validation set
-
-(v) please create "bengali/test_images.txt" file containing path of test word images. Each row of the file contains path of each word image in test set
-
-(vi) please create "bengali/test_labels.txt" file containing ground truth trascription of test word images. Each row of the file contains transcription of each word image in test set
-
-#####Create LMDB Training, Validation and Test files 
-
-cd create_lmdb_dataset
-
-#To create train_lmdb 
-
-python3  create_lmdb_dataset  --type train
-
-(i) It creates "train_lmdb" file under "bengali" folder 
-
-#To create val_lmdb 
-
-python3  create_lmdb_dataset  --type val
-
-(i) It creates "val_lmdb" file under "bengali" folder 
-
-
-#To create test_lmdb 
-
-python3  create_lmdb_dataset  --type test
-
-(i) It creates "test_lmdb" file under "bengali" folder 
+- It creates "test_lmdb" file under "bengali" folder 
